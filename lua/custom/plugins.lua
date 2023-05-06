@@ -1,10 +1,13 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
 
   -- Override plugin definition options
-
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -25,7 +28,7 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   {

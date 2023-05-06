@@ -3,8 +3,14 @@ local M = {}
 
 M.general = {
   n = {
+    ["<C-h>"] = {"<cmd> TmuxNavigateLeft<CR>","window left"},
+    
+    ["<C-l>"] = {"<cmd> TmuxNavigateRight<CR>","window right"},
+    ["<C-j>"] = {"<cmd> TmuxNavigateDown<CR>","window down"},
+    ["<C-k>"] = {"<cmd> TmuxNavigateUp<CR>","window up"},
+
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
-    ["<C-k>"] = {
+    ["<C-S-K>"] = {
       function()
         require("nvterm.terminal").toggle "float"
       end,
@@ -12,7 +18,7 @@ M.general = {
     },
   },
   t = {
-    ["<C-k>"] = {
+    ["<C-S-K>"] = {
       function()
         require("nvterm.terminal").toggle "float"
       end,
