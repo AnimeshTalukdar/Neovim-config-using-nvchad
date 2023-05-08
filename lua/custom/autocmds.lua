@@ -4,7 +4,7 @@
 
 vim.cmd([[
 	augroup run_file
-		autocmd BufEnter *.java let @b=":w\<CR>:vsp | terminal java %\<CR>i"
+		autocmd BufEnter *.java let @b=":w\<CR>:vsp | terminal !javac %; java `basename % .java`\<CR>"
 		autocmd BufEnter *.py let @b=":w\<CR>:vsp |terminal python3 %\<CR>i"
 		autocmd BufEnter *.asm let @b=":w\<CR> :!nasm -f elf64 -o out.o % && ld out.o -o a.out \<CR> | :vsp |terminal ./a.out\<CR>i"
 		autocmd BufEnter *.cpp let @b=":w\<CR> :!g++ -std=c++17 -O3 %\<CR> | :vsp |terminal ./a.out\<CR>i"
